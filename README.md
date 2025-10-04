@@ -1,22 +1,102 @@
-cat > README.md <<'MD'
-# Boston Housing - MLOps Assignment 1
+# Boston Housing Price Prediction — MLOps Assignment 1
 
-This repo contains a minimal MLOps pipeline for the Boston housing dataset:
-- dtree branch: DecisionTreeRegressor training (train.py)
-- kernelridge branch: KernelRidge training (train2.py) + GitHub Actions CI
+### Course Project: MLOps Assignment 1  
+**Author:** Arpit Tomar  
+**Roll No:** G24AI2001 
 
-Files:
-- misc.py : reusable pipeline functions
-- train.py : Decision Tree script
-- train2.py : Kernel Ridge script
-- requirements.txt : dependencies
-- .github/workflows/ci.yml : CI workflow
+---
 
-Run locally:
-1. create conda env: conda create -n boston-ml python=3.10 -y
-2. activate and install: conda activate boston-ml; pip install -r requirements.txt
-3. Run DT: python train.py
-4. Run KR: python train2.py --kernel linear --alpha 1.0
+This project demonstrates a **complete MLOps pipeline** for predicting **Boston housing prices** using two classical machine learning models —  
+**DecisionTreeRegressor** and **KernelRidge** — with full **CI/CD automation** through **GitHub Actions**.
+
+The goal is to showcase:
+- End-to-end workflow automation for model training & evaluation.
+- Modular, reusable code structure.
+- Continuous Integration (CI) to automatically validate the ML pipeline on every code push.
+
+## Project Structure
+Boston-Housing-mlops/
+│
+├── misc.py # Modular helper functions for data loading, preprocessing, training, and evaluation
+├── train.py # Model 1: DecisionTreeRegressor training script
+├── train2.py # Model 2: KernelRidge training script (with tunable hyperparameters)
+├── requirements.txt # Python dependencies for local and CI environment
+├── results_summary.csv # Automatically generated performance results (created after training)
+├── README.md # Project documentation (this file)
+├── .gitignore # Ignored files and directories
+│
+├── data/
+│ └── boston.csv # Local copy of the dataset for reproducible runs and CI stability
+│
+└── .github/
+└── workflows/
+└── ci.yml # GitHub Actions workflow file for CI/CD automation
+
+## Model Training and Evaluation
+
+1️-Decision Tree Model
+
+This script:
+-Loads and scales the dataset
+-Trains the Decision Tree model
+-Prints evaluation metrics
+-Saves the results to results_summary.csv
+
+2️-Kernel Ridge Model
+
+This script supports hyperparameter tuning using command-line arguments.
+
+
+## Available parameters:
+
+Argument	Description	Default
+--kernel	Kernel type (linear, poly, rbf, sigmoid, cosine)	linear
+--alpha	Regularization strength	1.0
+--gamma	Kernel coefficient (for rbf, poly, etc.)	None
+--test_size	Train-test split ratio	0.2
+--show_n	Number of predictions to display	10
+
+
+## Results Summary
+
+After both scripts are executed (either locally or via CI), a CSV file results_summary.csv is generated:
+
+## Model	MSE	RMSE	R²
+DecisionTreeRegressor	10.4161	3.2274	0.8579
+KernelRidge (RBF, α=0.5, γ=0.1)	15.4754	3.9339	0.7890
+
+## Observation:
+Decision Tree achieved better performance with lower error and higher R², indicating a stronger fit to the dataset.
+
+
+## Project Workflow Summary
+
+### Local Development
+-Implement helper functions in misc.py
+-Train and evaluate models locally (train.py, train2.py)
+-Validate performance and save metrics
+
+### Git & Branch Management
+-dtree branch → DecisionTreeRegressor implementation
+-kernelridge branch → KernelRidge + CI/CD setup
+-main branch → Final merged branch
+
+### Continuous Integration (CI)
+-Every push triggers automated runs on GitHub Actions
+-CI validates model scripts, dependency installation, and prints metrics
+-Ensures reproducibility and stable workflow execution
+
+
+# Author Information
+
+Name: Arpit Tomar
+Roll No: G24AI2001
+Email: g24ai2001@iitj.ac.in
+
 
 Note: Dataset is loaded from http://lib.stat.cmu.edu/datasets/boston as required (sklearn.load_boston is deprecated).
-MD
+
+© 2025 Arpit Tomar | G24AI2001
+All rights reserved. For academic and educational use only.
+
+

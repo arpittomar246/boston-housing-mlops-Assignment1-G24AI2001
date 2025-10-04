@@ -1,7 +1,3 @@
-
-"""
-Reusable functions: load_data(), split_data(), preprocessing, train/eval, printing and saving metrics.
-"""
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -73,10 +69,7 @@ def pretty_print_results(model_name: str, metrics: Dict[str, Any], y_test: np.nd
     print("".center(60, "="))
 
 def save_metrics(path: str, model_name: str, metrics: Dict[str, Any]):
-    """
-    Append metrics for the model into a CSV (creates file if doesn't exist).
-    metrics should include keys: mse, rmse, r2
-    """
+    
     out = {"model": model_name, "mse": metrics["mse"], "rmse": metrics["rmse"], "r2": metrics["r2"]}
     df = pd.DataFrame([out])
     header = not os.path.exists(path)

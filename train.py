@@ -1,10 +1,3 @@
-# cat > train.py <<'PY'
-# train.py
-"""
-DecisionTreeRegressor training script.
-Prints metrics and saves them to results_summary.csv.
-"""
-
 from sklearn.tree import DecisionTreeRegressor
 from misc import load_data, split_data, preprocess_scale, train_model, evaluate_model, pretty_print_results, save_metrics
 import argparse

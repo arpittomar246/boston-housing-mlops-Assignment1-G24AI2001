@@ -1,11 +1,3 @@
-
-# train2.py
-"""
-Train a KernelRidge model for predicting house prices.
-Allows tuning kernel, alpha and gamma via command-line arguments.
-Prints metrics and saves to results_summary.csv.
-"""
-
 import argparse
 from sklearn.kernel_ridge import KernelRidge
 from misc import load_data, split_data, preprocess_scale, train_model, evaluate_model, pretty_print_results, save_metrics
