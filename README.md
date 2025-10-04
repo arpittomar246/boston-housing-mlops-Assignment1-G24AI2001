@@ -35,10 +35,11 @@ The goal is to showcase:
 1️-Decision Tree Model
 
 This script:
--Loads and scales the dataset
+```-Loads and scales the dataset
 -Trains the Decision Tree model
 -Prints evaluation metrics
 -Saves the results to results_summary.csv
+```
 
 2️-Kernel Ridge Model
 
@@ -48,41 +49,117 @@ This script supports hyperparameter tuning using command-line arguments.
 ## Available parameters:
 
 Argument	Description	Default
+```
 --kernel	Kernel type (linear, poly, rbf, sigmoid, cosine)	linear
 --alpha	Regularization strength	1.0
 --gamma	Kernel coefficient (for rbf, poly, etc.)	None
 --test_size	Train-test split ratio	0.2
 --show_n	Number of predictions to display	10
-
+```
 
 ## Results Summary
 
 After both scripts are executed (either locally or via CI), a CSV file results_summary.csv is generated:
 
 ## Model	MSE	RMSE	R²
+```
 DecisionTreeRegressor	10.4161	3.2274	0.8579
 KernelRidge (RBF, α=0.5, γ=0.1)	15.4754	3.9339	0.7890
+```
 
 ## Observation:
 Decision Tree achieved better performance with lower error and higher R², indicating a stronger fit to the dataset.
+
+## Installation and Usage Instructions
+
+### 1 - Clone the Repository
+```
+git clone https://github.com/arpittomar/boston-housing-mlops-Assignment1-G24AI2001.git
+cd boston-housing-mlops-Assignment1-G24AI2001
+```
+
+### 2 - Create a Virtual Environment
+```
+python -m venv venv
+```
+
+
+### Activate it:
+
+Windows: venv\Scripts\activate
+macOS/Linux: source venv/bin/activate
+
+### 3- Install Dependencies
+```
+pip install -r requirements.txt
+```
+
+This installs:
+1.pandas
+2.numpy
+3.scikit-learn
+4.matplotlib
+
+### 4️- Run the Models
+Decision Tree:
+```
+python train.py
+```
+
+Kernel Ridge:
+```
+python train2.py --kernel rbf --alpha 0.5 --gamma 0.1
+```
+
+### 5️- View Results
+```
+cat results_summary.csv
+```
+
+Example Output:
+```
+model,mse,rmse,r2
+DecisionTreeRegressor,10.4161,3.2274,0.8579
+KernelRidge (RBF, α=0.5, γ=0.1),15.4754,3.9339,0.7890
+```
+
+
+### 6️- GitHub Actions (CI/CD)
+
+This project automates testing and model evaluation on every push to:
+1.dtree
+2.kernelridge
+3.main
+
+The workflow file .github/workflows/ci.yml performs:
+1.Dependency installation
+2.Running both training scripts
+3.Outputting model performance logs
 
 
 ## Project Workflow Summary
 
 ### Local Development
+```
 -Implement helper functions in misc.py
 -Train and evaluate models locally (train.py, train2.py)
 -Validate performance and save metrics
+```
+
 
 ### Git & Branch Management
+```
 -dtree branch → DecisionTreeRegressor implementation
 -kernelridge branch → KernelRidge + CI/CD setup
 -main branch → Final merged branch
+```
 
 ### Continuous Integration (CI)
+```
 -Every push triggers automated runs on GitHub Actions
 -CI validates model scripts, dependency installation, and prints metrics
 -Ensures reproducibility and stable workflow execution
+```
 
 
 # Author Information
