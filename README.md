@@ -95,6 +95,6 @@ Email: g24ai2001@iitj.ac.in
 Note: Dataset is loaded from http://lib.stat.cmu.edu/datasets/boston as required (sklearn.load_boston is deprecated).
 
 © 2025 Arpit Tomar | G24AI2001
-All rights reserved. For academic and educational use only.
+All rights reserved. For academic and educational use only!
 
 
