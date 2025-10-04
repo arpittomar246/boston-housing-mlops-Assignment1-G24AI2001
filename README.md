@@ -15,22 +15,20 @@ The goal is to showcase:
 - Continuous Integration (CI) to automatically validate the ML pipeline on every code push.
 
 ## Project Structure
-Boston-Housing-mlops/
-│
-├── misc.py # Modular helper functions for data loading, preprocessing, training, and evaluation
-├── train.py # Model 1: DecisionTreeRegressor training script
-├── train2.py # Model 2: KernelRidge training script (with tunable hyperparameters)
-├── requirements.txt # Python dependencies for local and CI environment
-├── results_summary.csv # Automatically generated performance results (created after training)
-├── README.md # Project documentation (this file)
-├── .gitignore # Ignored files and directories
-│
+```boston-housing-mlops/
+├── .github/
+│   └── workflows/
+│       └── ci.yml               # GitHub Actions workflow for CI/CD
 ├── data/
-│ └── boston.csv # Local copy of the dataset for reproducible runs and CI stability
-│
-└── .github/
-└── workflows/
-└── ci.yml # GitHub Actions workflow file for CI/CD automation
+│   └── boston.csv               # Local copy of Boston dataset (used by CI)
+├── misc.py                      # Helper functions (load, preprocess, train, eval)
+├── train.py                     # DecisionTreeRegressor training script
+├── train2.py                    # KernelRidge training script (tunable)
+├── requirements.txt             # Python dependencies
+├── results_summary.csv          # Generated performance results (after runs)
+├── README.md                    # Project documentation
+└── .gitignore                   # Files and folders to ignore in git```
+
 
 ## Model Training and Evaluation
 
