@@ -27,8 +27,8 @@ The goal is to showcase:
 ├── requirements.txt             # Python dependencies
 ├── results_summary.csv          # Generated performance results (after runs)
 ├── README.md                    # Project documentation
-└── .gitignore                   # Files and folders to ignore in git```
-
+└── .gitignore                   # Files and folders to ignore in git
+```
 
 ## Model Training and Evaluation
 
