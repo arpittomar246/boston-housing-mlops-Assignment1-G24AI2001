@@ -1,0 +1,9 @@
+cat > .gitignore <<'GI'
+__pycache__/
+*.pyc
+.env
+venv/
+.ipynb_checkpoints
+.DS_Store
+results_summary.csv
+GI
